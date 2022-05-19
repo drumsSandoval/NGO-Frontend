@@ -11,10 +11,13 @@ const Card = ({ article }) => {
             <NextImage image={article.attributes.image} />
           </div>
           <div className="uk-card-body">
-            <p id="category" className="uk-text-uppercase">
-              {article.attributes.category.data.attributes.name}
-            </p>
-            <p id="title" className="uk-text-large">
+            <p id="title" className="uk-text-large" style={{
+              overflow: 'hidden',
+              whiteSpace: 'nowrap', /* Don't forget this one */
+              textOverflow: 'ellipsis',
+              fontSize: 16,
+              fontWeight:'bold'
+            }}>
               {article.attributes.title}
             </p>
           </div>

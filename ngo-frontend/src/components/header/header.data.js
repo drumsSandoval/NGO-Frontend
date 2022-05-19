@@ -16,4 +16,8 @@ export default [
     path: 'testimonials',
     label: 'Testimoniales',
   },
+  {
+    path: "conferences",
+    label: "Conferencias",
+  },
 ];

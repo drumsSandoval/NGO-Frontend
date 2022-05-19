@@ -8,7 +8,7 @@ const us  =  `Visión: Registrar pormenorizadamente el acontecer diario, privile
 
 const Nosotros = () => {
   return (
-    <Box as="section">
+    <Box as="section" id="support">
         <div className="uk-section">
             <div className="uk-container uk-container-small">
               <h1>Sobre Nosotros</h1>

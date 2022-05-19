@@ -2,45 +2,33 @@
 import { jsx, Box, Flex, Container, Heading, Text } from 'theme-ui';
 import { rgba } from 'polished';
 import Image from 'components/image';
-import SubscriptionForm from 'components/subscription-form';
-import illustration from 'assets/images/banner.png';
-import paypal from 'assets/images/paypal.png';
-import google from 'assets/images/google.png';
-import dropbox from 'assets/images/dropbox.png';
 
-const logos = [
-  {
-    name: 'Paypal',
-    src: paypal,
-  },
-  {
-    name: 'Google',
-    src: google,
-  },
-  {
-    name: 'Dropbox',
-    src: dropbox,
-  },
-];
+
 
 const Banner = () => {
   return (
-    <Box as="section" id="home" sx={styles.section}>
-      <Container>
-        <Box sx={styles.contentWrapper}>
-          <Box sx={styles.bannerContent}>
-            <Heading as="h1">
-              Real asociación de cronistas municipales del estado de Jalisco AC.
-            </Heading>
-            <Text as="p">
-              Misión: Cultura, Verdad y Civismo al servicio de la población
-            </Text>
+    <Box sx={styles.container}>
+      <Box as="section" id="home" sx={styles.section}>
+        <Container>
+          <Box sx={styles.contentWrapper}>
+            <Box sx={styles.bannerContent}>
+              <Heading as="h1">
+                <div style={{color: 'white'}}>
+                    Real asociación de cronistas municipales del estado de Jalisco AC.
+                </div>
+              </Heading>
+              <Text as="p">
+                <div style={{color:'white'}}>
+                  Misión: Cultura, Verdad y Civismo al servicio de la población
+                </div>
+              </Text>
+            </Box>
+            <Flex as="figure" sx={styles.bannerImage}>
+              <Image src={'/logocronistas.png'} alt="illustration" />
+            </Flex>
           </Box>
-          <Flex as="figure" sx={styles.bannerImage}>
-            <Image src={'/logocronistas.png'} alt="illustration" />
-          </Flex>
-        </Box>
-      </Container>
+        </Container>
+      </Box>
     </Box>
   );
 };
@@ -48,8 +36,17 @@ const Banner = () => {
 export default Banner;
 
 const styles = {
+  container: {
+    backgroundImage: 'url(https://images.unsplash.com/photo-1617762537199-ddffffbe1ae7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1664&q=80)',
+    backgroundRepeat: 'no-repeat no-repeat',
+    backgroundSize: 'cover',
+    width: '100vw',
+    height: '100vh',
+    backgroundPosition: 'center center',
+  },
   section: {
-    backgroundColor: '#FFFCF7',
+    background: 'rgba(0, 0, 0, 0.2)',
+    backdropFilter: 'blur(5px)',
     pt: [14, null, null, null, null, 0],
     pb: [6, null, null, 7, 11, 0],
   },

@@ -1,7 +1,9 @@
+import {useRouter} from 'next/router';
 import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 import { ThemeProvider } from 'theme-ui';
 import theme from 'theme';
+import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, LinkedinIcon, LinkedinShareButton,  } from 'react-share';
 
 import Layout from "../../components/layout";
 
@@ -10,7 +12,9 @@ import { getStrapiMedia } from "../../lib/media";
 
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.attributes.image);
-  console.log('Ep: ',article.attributes.content)
+  const router = useRouter();
+  const baserUrl = `https://example.com`;
+  console.log('Router jsjsjs: ', router.asPath)
   return (
     <ThemeProvider theme={theme}>
         <Layout categories={categories.data}>
@@ -58,6 +62,29 @@ const Article = ({ article, categories }) => {
                 </p>
                 </div>
             </div>
+            </div>
+            <div style={{marginTop:50}}>
+              <FacebookShareButton
+                url={`${baserUrl}/${router.asPath}`}     //eg. https://www.example.com
+                quotes={"Eo"}  //"Your Quotes"
+                hashtag={"#4eoeo"} // #hashTag
+              >
+                <FacebookIcon />
+              </FacebookShareButton>    
+              <TwitterShareButton
+                url={`${baserUrl}/${router.asPath}`}     //eg. https://www.example.com
+                quotes={"Eo"}  //"Your Quotes"
+                hashtag={"#4eoeo"} // #hashTag
+              >
+                <TwitterIcon />
+              </TwitterShareButton>    
+              <LinkedinShareButton
+                url={`${baserUrl}/${router.asPath}`}     //eg. https://www.example.com
+                quotes={"Eo"}  //"Your Quotes"
+                hashtag={"#4eoeo"} // #hashTag
+              >
+                <LinkedinIcon />
+              </LinkedinShareButton>    
             </div>
         </div>
         </Layout>

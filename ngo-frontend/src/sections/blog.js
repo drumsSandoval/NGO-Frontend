@@ -9,7 +9,7 @@ const PremiumFeature = ({articles,homepage }) => {
       <Container>
       <div className="uk-section">
             <div className="uk-container uk-container-large">
-            <h1>{homepage.attributes.hero.title}</h1>
+            <h1>Articulos</h1>
             <Articles articles={articles} />
             </div>
         </div>

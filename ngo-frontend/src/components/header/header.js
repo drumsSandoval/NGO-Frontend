@@ -1,21 +1,22 @@
 /** @jsx jsx */
 import { jsx, Box, Container, Flex, Button } from 'theme-ui';
 import Sticky from 'react-stickynode';
+import {useRouter} from 'next/router';
 import { useState } from 'react';
 import { DrawerProvider } from 'contexts/drawer/drawer-provider';
 import NavbarDrawer from './navbar-drawer';
-import Image from 'components/image';
 import Logo from 'components/logo';
 import { NavLink } from 'components/link';
 
 import menuItems from './header.data';
-import lock from 'assets/images/icons/lock.png';
+
 
 export default function Header() {
   const [state, setState] = useState({
     isMobileMenu: false,
     isSticky: false,
   });
+  const router = useRouter();
   const handleCloseMenu = () => {
     setState({
       ...state,
@@ -58,11 +59,13 @@ export default function Header() {
                 </Flex>
                 <Flex sx={styles.buttonGroup}>
                   <button sx={styles.login}>
-                    <Image src={lock} alt="lock icon" />
+
                     Login
                   </button>
-                  <Button variant="text" sx={styles.getStarted}>
-                    Hola!
+                  <Button variant="text" sx={styles.getStarted}  onClick={() => {
+                    console.log('Hola jajaj')
+                  }}>
+                    Donación
                   </Button>
                 </Flex>
                 <NavbarDrawer />
@@ -135,8 +138,8 @@ const styles = {
     },
   },
   getStarted: {
-    backgroundColor: '#FFF0D7',
-    color: '#E6A740',
+    backgroundColor:  'rgb(2,118,227)',
+    color: '#ffff',
     p: ['0 16px'],
     minHeight: 45,
     ml: [6],
@@ -145,7 +148,7 @@ const styles = {
   login: {
     backgroundColor: 'transparent',
     position: ['absolute', null, null, null, 'static'],
-    color: 'text',
+    color: 'rgb(2,118,227)',
     fontSize: [2],
     fontWeight: 500,
     top: '50%',
