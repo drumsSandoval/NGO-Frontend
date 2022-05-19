@@ -58,12 +58,14 @@ export default function Header() {
                   </Box>
                 </Flex>
                 <Flex sx={styles.buttonGroup}>
-                  <button sx={styles.login}>
+                  <button sx={styles.login} onClick={() => {
+                    window.open('http://localhost:1337/admin/auth/login');
+                  }}>
 
                     Login
                   </button>
                   <Button variant="text" sx={styles.getStarted}  onClick={() => {
-                    console.log('Hola jajaj')
+                    router.push('/donacion');
                   }}>
                     Donación
                   </Button>
@@ -160,10 +162,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     outline: 0,
-    img: {
-      maxWidth: 14,
-      mr: 2,
-    },
+    cursor: 'pointer',
   },
   menuButton: {
     position: 'relative',
